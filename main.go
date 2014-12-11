@@ -25,7 +25,7 @@ func main() {
 		}
 	}()
 
-	http.Handle("/", http.FileServer(http.Dir(".")))
+	http.Handle("/", http.FileServer(http.Dir("static")))
 
 	port := "9999"
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
