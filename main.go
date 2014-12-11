@@ -17,8 +17,6 @@ func main() {
 
 	redisUrl := os.Getenv("REDIS_URL")
 
-	port := "9999"
-
 	l := pubsub.NewListener(redisUrl)
 	go l.Listen()
 
@@ -35,6 +33,7 @@ func main() {
 
 	http.Handle("/", http.FileServer(http.Dir(".")))
 
+	port := "9999"
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}

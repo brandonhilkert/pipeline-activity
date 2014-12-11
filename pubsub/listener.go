@@ -42,7 +42,7 @@ func (l *Listener) Process() {
 		switch v := l.PubSubConn.Receive().(type) {
 		case redis.PMessage:
 			m := NewMessage(v.Channel)
-			log.Printf("Message found: %v\n", m)
+			// log.Printf("Message found: %v\n", m)
 			l.MsgCh <- m
 		case error:
 			log.Printf("error: %v\n", v)
