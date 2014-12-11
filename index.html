@@ -55,22 +55,22 @@
     <div class="container models">
       <div class="row">
         <div class="three columns people">
-          <i class="fa fa-child"></i>
+          <i class="fa fa-child person"></i>
           <br />
           <h4>People</h4>
         </div>
         <div class="three columns">
-          <i class="fa fa-briefcase"></i>
+          <i class="fa fa-briefcase deal"></i>
           <br />
           <h4>Deals</h4>
         </div>
         <div class="three columns">
-          <i class="fa fa-building"></i>
+          <i class="fa fa-building company"></i>
           <br />
           <h4>Companies</h4>
         </div>
         <div class="three columns">
-          <i class="fa fa-calendar"></i>
+          <i class="fa fa-calendar calendar_entry"></i>
           <br />
           <h4>Calendar Entries</h4>
         </div>
@@ -80,43 +80,48 @@
     <div class="container models">
       <div class="row">
         <div class="three columns">
-          <i class="fa fa-comment"></i>
+          <i class="fa fa-comment note"></i>
           <br />
           <h4>Notes</h4>
         </div>
         <div class="three columns">
-          <i class="fa fa-comments"></i>
+          <i class="fa fa-comments comment"></i>
           <br />
           <h4>Comments</h4>
         </div>
         <div class="three columns">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-user user"></i>
           <br />
           <h4>Users</h4>
         </div>
         <div class="three columns">
-          <i class="fa fa-users"></i>
+          <i class="fa fa-users account"></i>
           <br />
           <h4>Accounts</h4>
         </div>
       </div>
     </div>
     <script>
-      $(".fa").on("click", function() {
-        var $circle = $('<div class="circle"></div>');
-        $circle.animate({
-          'width': '200px',
-          'height': '200px',
-          'margin-top': '-100px',
-          'margin-left': '-100px',
-          'opacity': '0'
-        }, 1000);
-        $(this).parents(".columns").prepend($circle);
+      Beacon = {
+        show: function(model) {
+          var $circle = $('<div class="circle"></div>');
 
-        setTimeout(function __remove() {
-          $circle.remove();
-        }, 1000);
-      });
+          $circle.animate({
+            'width': '200px',
+            'height': '200px',
+            'margin-top': '-100px',
+            'margin-left': '-100px',
+            'opacity': '0'
+          }, 1000);
+
+          $("." + model).parents(".columns").prepend($circle);
+
+          setTimeout(function __remove() {
+            $circle.remove();
+          }, 1000);
+        }
+
+      }
 
       PipelineSockets = {
         wsUri: "ws://127.0.0.1:9999/socket",
@@ -133,7 +138,9 @@
           };
 
           ws.onmessage = function(evt) {
-            console.log("MESSAGE", evt);
+            // console.log("MESSAGE", evt);
+            var data = JSON.parse(evt.data)
+            Beacon.show(data.model);
           };
 
           ws.onerror = function(evt) {
