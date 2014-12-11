@@ -1,0 +1,30 @@
+.fa {
+  font-size: 10rem !important;
+}
+
+.models {
+  margin-top: 4rem;
+}
+
+.models .columns {
+  text-align: center;
+  position: relative;
+}
+
+.models .columns h4 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.circle {
+  cursor: pointer;
+  border: 4px solid rgba(001, 106, 187, 1);
+  border-radius: 50%;
+  background: rgba(001, 106, 187, .5);
+  opacity: 1;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  z-index: 1;
+}
+
