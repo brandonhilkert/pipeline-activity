@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/PipelineDeals/pipeline-activity/pubsub"
-	"github.com/PipelineDeals/pipeline-activity/socket"
+	"github.com/brandonhilkert/pipeline-activity/pubsub"
+	"github.com/brandonhilkert/pipeline-activity/socket"
 	"github.com/joho/godotenv"
 	"log"
 	"net/http"

@@ -1,0 +1,19 @@
+{
+	"ImportPath": "github.com/brandonhilkert/pipeline-activity",
+	"GoVersion": "go1.3.3",
+	"Deps": [
+		{
+			"ImportPath": "code.google.com/p/go.net/websocket",
+			"Comment": "null-83",
+			"Rev": "d6167d29456ccb4d1ac0e774631589202a411c8a"
+		},
+		{
+			"ImportPath": "github.com/garyburd/redigo/redis",
+			"Rev": "8d6d4f929affa96b443abd7fdb5a32ffc27865dc"
+		},
+		{
+			"ImportPath": "github.com/joho/godotenv",
+			"Rev": "aab3ea4ba68f8fe7492604240b01190d9efc4db4"
+		}
+	]
+}
