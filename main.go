@@ -26,9 +26,11 @@ func main() {
 	go s.Listen()
 
 	go func() {
-		m := <-l.MsgCh
-		sm := &socket.Message{m.Model, m.Action}
-		s.SendAll(sm)
+		for {
+			m := <-l.MsgCh
+			sm := &socket.Message{m.Model, m.Action}
+			s.SendAll(sm)
+		}
 	}()
 
 	http.Handle("/", http.FileServer(http.Dir(".")))
