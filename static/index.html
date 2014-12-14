@@ -78,8 +78,8 @@
     </div>
     <script>
       Beacon = {
-        show: function(model) {
-          var $circle = $('<div class="circle"></div>');
+        show: function(model, action) {
+          var $circle = $('<div class="circle ' + action + '"></div>');
 
           $circle.animate({
             'width': '200px',
@@ -89,10 +89,9 @@
             'opacity': '0'
           }, 1000);
 
-          $("." + model).parents(".columns").prepend($circle);
-          var $h1 = $("." + model).find("h1")
-          var count = parseInt($h1.html())
-          $h1.html(count + 1);
+          $("." + model).prepend($circle);
+          var $h1 = $("." + model).find("h1");
+          $h1.html(parseInt($h1.html())+ 1);
 
           setTimeout(function __remove() {
             $circle.remove();
@@ -118,7 +117,7 @@
           ws.onmessage = function(evt) {
             // console.log("MESSAGE", evt);
             var data = JSON.parse(evt.data)
-            Beacon.show(data.model);
+            Beacon.show(data.model, data.action);
           };
 
           ws.onerror = function(evt) {

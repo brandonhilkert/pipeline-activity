@@ -2,29 +2,78 @@
   font-size: 10rem !important;
 }
 
-.models {
-  margin-top: 4rem;
+.header h1 {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  text-align: center;
 }
 
-.models .columns {
+.header ul {
+  list-style-type: none;
+}
+
+.header li {
+  float: left;
+  text-align: center;
+  margin: 0 3rem 0 0;
+}
+
+.header li:last-of-type {
+  margin-right: 0;
+}
+
+.models {
+  margin-top: 3rem;
+}
+
+.columns {
   text-align: center;
   position: relative;
 }
 
-.models .columns h4 {
+.columns h4 {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
+.columns h1 {
+  margin-bottom: 0;
+}
+
 .circle {
   cursor: pointer;
-  border: 4px solid rgba(001, 106, 187, 1);
   border-radius: 50%;
-  background: rgba(001, 106, 187, .5);
   opacity: 1;
   position: absolute;
   top: 40px;
   left: 50%;
   z-index: 1;
+}
+
+.update {
+  border: 4px solid rgba(001, 106, 187, 1);
+  background: rgba(001, 106, 187, .5);
+}
+
+.destroy {
+  border: 4px solid rgba(244, 036, 023, 1);
+  background: rgba(244, 036, 023, .5);
+}
+
+.create {
+  border: 4px solid rgba(008, 138, 036, 1);
+  background: rgba(008, 138, 036, .5);
+}
+
+.legend {
+  width: 220px;
+  margin: 0 auto;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 auto;
 }
 
